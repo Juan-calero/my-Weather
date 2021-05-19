@@ -1,9 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
+@font-face {
+  font-family: 'Metropolis';
+  src: url("./fonts/metropolis.black.otf");
+}
+
 *,
 *::after,
 *::before {
   margin: 0%;
   overflow: hidden;
   box-sizing: border-box;
+  font-family: 'Alice', serif;
 }
 
 :root {
@@ -12,16 +19,17 @@
 
 h2 {
   color: white;
-  font-size: 5rem;
+  font-size: 3rem;
+  font-family: 'Metropolis', serif;
 }
 
 h4 {
   color: #727272;
-  font-size: 3rem;
+  font-size: 2.4rem;
 }
 
 p {
-  color: #727272;
+  color: white;
   font-size: 2.6rem;
   max-width: 30ch;
 }
@@ -35,6 +43,18 @@ body {
   background-position: bottom;
 }
 
+.search {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.search input {
+  padding: 1rem 2rem;
+  border-radius: 5rem;
+  border: 2px solid #727272;
+}
+
 .cards {
   margin: 0 auto;
   width: 60%;
@@ -44,6 +64,8 @@ body {
 }
 
 .card {
+  opacity: .9;
+  padding: 2rem;
   width: 20rem;
   height: 30rem;
   display: flex;
@@ -51,6 +73,13 @@ body {
   align-items: center;
   border-radius: 2rem;
   background: blue;
+}
+
+.card__icon {
+  fill: red;
+  margin: auto 0;
+  height: 10rem;
+  width: 10rem;
 }
 
 .info {
@@ -119,5 +148,25 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.hot {
+  background: linear-gradient(-45deg, #ff9966, #ff5e62);
+}
+
+.warm {
+  background: linear-gradient(-45deg, #fff34d, #ffa939);
+}
+
+.cool {
+  background: linear-gradient(-45deg, #fff34d, #74ebd5);
+}
+
+.cold {
+  background: linear-gradient(-45deg, #acb6e5, #74ebd5);
+}
+
+.freeze {
+  background: linear-gradient(-45deg, #f2fcfe, #1c92d2);
 }
 /*# sourceMappingURL=App.css.map */

@@ -1,0 +1,32 @@
+const weatherTypes = [
+    'Sem Informação',
+    'Céu Limpo',
+    'Pouco Nublado',
+    'Nublado',
+    'Muito Nublado',
+    'Nuvens altas',
+    'Aguaceiros',
+    'Aguaceiros',
+    'Aguaceiros',
+    'Chuva',
+    'Chuva fraca',
+    'Chuva forte',
+    'Periodos de Chuva',
+    'Periodos de Chuva',
+    'Periodos de Chuva',
+    'Chuvisco',
+    "Neblina",
+    'Nevoeiro',
+    'Neve',
+    'Trovoada',
+    'Aguaceiros e trovoada',
+    'Granizo',
+    'Geada',
+    'Chuva e trovoada',
+    'Nebulosidade convectiva',
+    'Parcialmente Nublado',
+    'Nevoeiro',
+    'Nublado'
+]
+
+export default weatherTypes
