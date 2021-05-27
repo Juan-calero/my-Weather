@@ -5,6 +5,7 @@
 }
 
 $darkGrey: #727272;
+
 @media screen and (min-width: 1200px) {
     *,
     *::after,
@@ -22,16 +23,17 @@ $darkGrey: #727272;
 
     h2 {
         color: $darkGrey;
-        font-size: 2.4rem;
+        font-size: #{"min(2.4rem, 1.4vw)"};
     }
     h3 {
         color: $darkGrey;
         font-size: 3rem;
+        text-align: center;
     }
 
     h4 {
         color: $darkGrey;
-        font-size: 3rem;
+        font-size: #{"clamp(3rem, 2.4vw, 4rem)"};
         font-family: "Metropolis", serif;
     }
     h5 {
@@ -62,37 +64,42 @@ $darkGrey: #727272;
     }
 
     .search {
-        position: relative;
-
-        display: flex;
-        justify-content: center;
-        margin: 3rem 0;
-        & input {
-            position: relative;
-            z-index: 10;
-            padding: 1rem 2rem;
-            border-radius: 5rem;
-            border: none;
-        }
-        &--btn {
-            z-index: 5;
-            position: relative;
-            border-radius: 25px;
-            padding-left: 4rem;
-            padding-right: 1.5rem;
-            margin-left: -3rem;
-            cursor: pointer;
-            border: none;
-            background-color: $darkGrey;
+        &__title {
+            margin-top: 2rem;
             color: white;
-            &:hover,
-            &:focus {
-                background-color: lighten($darkGrey, 10%);
+        }
+        &__form {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+            & input {
+                position: relative;
+                z-index: 10;
+                padding: 1rem 2rem;
+                border-radius: 5rem;
+                border: none;
+            }
+            &--btn {
+                z-index: 5;
+                position: relative;
+                border-radius: 25px;
+                padding-left: 4rem;
+                padding-right: 1.5rem;
+                margin-left: -3rem;
+                cursor: pointer;
+                border: none;
+                background-color: $darkGrey;
+                color: white;
+                &:hover,
+                &:focus {
+                    background-color: lighten($darkGrey, 10%);
+                }
             }
         }
         &__suggestions {
             z-index: 3;
-            margin-top: -5rem;
+            margin: -5rem auto auto 2.2rem;
             padding: 2rem 0;
             position: absolute;
             width: 24.7rem;
@@ -112,7 +119,6 @@ $darkGrey: #727272;
             }
         }
     }
-
     .cards {
         margin: 0 auto;
         width: #{"min(80vw,130rem)"};
@@ -120,41 +126,35 @@ $darkGrey: #727272;
         justify-content: space-around;
         align-items: center;
         flex-wrap: nowrap;
-    }
-
-    .card {
-        transition: transform 0s;
-        opacity: 0.9;
-        margin: 2rem;
-        padding: 2rem;
-        width: 10vw;
-        height: 15vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: 2rem;
-        background: $darkGrey;
-        &__dayOfWeek {
-        }
-        &__icon {
-            margin: auto 0;
-            height: 10rem;
-            width: 10rem;
+        &__item {
+            transition: transform 0s;
+            opacity: 0.9;
+            margin: 2rem;
+            padding: 2rem;
+            width: #{"min(18rem,17vw)"};
+            height: #{"min(27rem,19vw)"};
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 2rem;
+            background: $darkGrey;
+            &--icon {
+                margin: auto 0;
+                height: 10rem;
+                width: 10rem;
+            }
             &--path {
                 fill: url(#gradient);
             }
-        }
-        &__degs {
-        }
-        &__weatherType {
-        }
-        &:hover,
-        &:focus {
-            cursor: pointer;
-            transform: scale(1.1);
-            box-shadow: 0px 0px 10px white;
+            &:hover,
+            &:focus {
+                cursor: pointer;
+                transform: scale(1.1);
+                box-shadow: 0px 0px 10px white;
+            }
         }
     }
+
     @keyframes popup {
         from {
             opacity: 0;
@@ -196,32 +196,6 @@ $darkGrey: #727272;
         background: linear-gradient(-45deg, #899ffc, #5a7bff);
     }
 
-    .bigcard {
-        transition: transform 0.2s, filter 0.2s, opacity -0.1s;
-        animation-duration: 0.2s;
-        padding: 2rem;
-        margin: 0 5rem 0 0;
-        width: 14vw;
-        height: 21vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: 3rem;
-        &__dayOfWeek {
-        }
-        &__icon {
-            margin: auto 0;
-            height: 20rem;
-            width: 20rem;
-            &--path {
-                fill: url(#gradient);
-            }
-        }
-        &__degs {
-        }
-        &__weatherType {
-        }
-    }
     .main-stop {
         stop-color: #ffffff;
     }
@@ -238,14 +212,37 @@ $darkGrey: #727272;
         justify-content: space-evenly;
         align-items: center;
 
+        &__card {
+            transition: transform 0.2s, filter 0.2s, opacity -0.1s;
+            animation-duration: 0.2s;
+            padding: 2rem;
+            margin: 0 5rem 0 0;
+            width: #{"min(26rem,18vw)"};
+            height: #{"min(39rem,27vw)"};
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 3rem;
+
+            &--icon {
+                margin: auto 0;
+                height: 20rem;
+                width: 20rem;
+            }
+            &--path {
+                fill: url(#gradient);
+            }
+        }
         &__content {
-            display: grid;
-            grid-template-columns: auto auto;
-            grid-template-areas:
-                "wind rain"
-                "max  min"
-                "paragraph paragraph";
-            gap: 4rem;
+            &--grid {
+                display: grid;
+                grid-template-columns: auto auto;
+                gap: 4rem;
+                grid-template-areas:
+                    "wind rain"
+                    "max  min";
+                margin: 2rem 0;
+            }
             &--item {
                 padding: 1rem 0;
                 display: flex;
@@ -254,9 +251,6 @@ $darkGrey: #727272;
                 border: 2px solid white;
                 border-radius: 5px;
             }
-            &--paragraph {
-                grid-area: paragraph;
-            }
         }
     }
     .wind {
@@ -264,9 +258,6 @@ $darkGrey: #727272;
     }
     .rain {
         grid-area: rain;
-    }
-    .windstr {
-        grid-area: windstr;
     }
     .max {
         grid-area: max;

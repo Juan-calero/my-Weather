@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { urlSearch, MyContext } from "../utils/utils";
 import useFetch from "../utils/useFetch";
 
@@ -7,6 +7,7 @@ export default function Search() {
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const { previsao } = useFetch(urlSearch);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     previsao.map((distrito) => {
@@ -15,33 +16,34 @@ export default function Search() {
           `http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${distrito.globalIdLocal}.json`
         );
         setValue("");
-        console.log(distrito.globalIdLocal);
       }
     });
   };
+
   const handleSuggestions = () => {
     let array = previsao.filter((e) => {
       return e.local.toLowerCase().includes(value.toLowerCase());
     });
     setSuggestions(array);
   };
+
   return (
-    <div className="searchComponent">
-      <form id="searchForm" className="search" onSubmit={handleSubmit}>
-        <label htmlFor="">
-          <input
-            type="search"
-            placeholder="Ex: Lisboa"
-            value={value}
-            onChange={(e) => {
-              setValue(e.target.value);
-              handleSuggestions();
-            }}
-            name=""
-            id=""
-          />
-        </label>
-        <button className="search--btn" type="submit">
+    <section className="search">
+      <h3 className="search__title">Pesquise Distrito/Ilha</h3>
+      <form id="searchForm" className="search__form" onSubmit={handleSubmit}>
+        <input
+          type="search"
+          placeholder="Distrito/Ilha"
+          ariaLabel="Search"
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+            handleSuggestions();
+          }}
+          name=""
+          id="search"
+        />
+        <button className="search__form--btn" type="submit">
           Click
         </button>
       </form>
@@ -63,11 +65,6 @@ export default function Search() {
           })}
         </div>
       )}
-    </div>
+    </section>
   );
 }
-
-/////////////////////////
-//JÁ CONSEGUI FILTRAR AS SUGESTÕES, SÓ FALTA
-//CONSEGUIR MAPPEAR? CADA E RETORNAR A LISTA DE SUGGESTÕES
-//////////////////////////////////////////

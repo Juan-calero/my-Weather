@@ -19,15 +19,16 @@
   }
   h2 {
     color: #727272;
-    font-size: 2.4rem;
+    font-size: min(2.4rem, 1.4vw);
   }
   h3 {
     color: #727272;
     font-size: 3rem;
+    text-align: center;
   }
   h4 {
     color: #727272;
-    font-size: 3rem;
+    font-size: clamp(3rem, 2.4vw, 4rem);
     font-family: "Metropolis", serif;
   }
   h5 {
@@ -53,20 +54,24 @@
     flex-direction: column;
     align-items: center;
   }
-  .search {
+  .search__title {
+    margin-top: 2rem;
+    color: white;
+  }
+  .search__form {
     position: relative;
     display: flex;
     justify-content: center;
     margin: 3rem 0;
   }
-  .search input {
+  .search__form input {
     position: relative;
     z-index: 10;
     padding: 1rem 2rem;
     border-radius: 5rem;
     border: none;
   }
-  .search--btn {
+  .search__form--btn {
     z-index: 5;
     position: relative;
     border-radius: 25px;
@@ -78,12 +83,12 @@
     background-color: #727272;
     color: white;
   }
-  .search--btn:hover, .search--btn:focus {
+  .search__form--btn:hover, .search__form--btn:focus {
     background-color: #8c8c8c;
   }
   .search__suggestions {
     z-index: 3;
-    margin-top: -5rem;
+    margin: -5rem auto auto 2.2rem;
     padding: 2rem 0;
     position: absolute;
     width: 24.7rem;
@@ -109,28 +114,28 @@
     align-items: center;
     flex-wrap: nowrap;
   }
-  .card {
+  .cards__item {
     transition: transform 0s;
     opacity: 0.9;
     margin: 2rem;
     padding: 2rem;
-    width: 10vw;
-    height: 15vw;
+    width: min(18rem,17vw);
+    height: min(27rem,19vw);
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 2rem;
     background: #727272;
   }
-  .card__icon {
+  .cards__item--icon {
     margin: auto 0;
     height: 10rem;
     width: 10rem;
   }
-  .card__icon--path {
+  .cards__item--path {
     fill: url(#gradient);
   }
-  .card:hover, .card:focus {
+  .cards__item:hover, .cards__item:focus {
     cursor: pointer;
     transform: scale(1.1);
     box-shadow: 0px 0px 10px white;
@@ -167,26 +172,6 @@
   .freeze {
     background: linear-gradient(-45deg, #899ffc, #5a7bff);
   }
-  .bigcard {
-    transition: transform 0.2s, filter 0.2s, opacity -0.1s;
-    animation-duration: 0.2s;
-    padding: 2rem;
-    margin: 0 5rem 0 0;
-    width: 14vw;
-    height: 21vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 3rem;
-  }
-  .bigcard__icon {
-    margin: auto 0;
-    height: 20rem;
-    width: 20rem;
-  }
-  .bigcard__icon--path {
-    fill: url(#gradient);
-  }
   .main-stop {
     stop-color: #ffffff;
   }
@@ -202,11 +187,32 @@
     justify-content: space-evenly;
     align-items: center;
   }
-  .detail__content {
+  .detail__card {
+    transition: transform 0.2s, filter 0.2s, opacity -0.1s;
+    animation-duration: 0.2s;
+    padding: 2rem;
+    margin: 0 5rem 0 0;
+    width: min(26rem,18vw);
+    height: min(39rem,27vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3rem;
+  }
+  .detail__card--icon {
+    margin: auto 0;
+    height: 20rem;
+    width: 20rem;
+  }
+  .detail__card--path {
+    fill: url(#gradient);
+  }
+  .detail__content--grid {
     display: grid;
     grid-template-columns: auto auto;
-    grid-template-areas: "wind rain" "max  min" "paragraph paragraph";
     gap: 4rem;
+    grid-template-areas: "wind rain" "max  min";
+    margin: 2rem 0;
   }
   .detail__content--item {
     padding: 1rem 0;
@@ -216,17 +222,11 @@
     border: 2px solid white;
     border-radius: 5px;
   }
-  .detail__content--paragraph {
-    grid-area: paragraph;
-  }
   .wind {
     grid-area: wind;
   }
   .rain {
     grid-area: rain;
-  }
-  .windstr {
-    grid-area: windstr;
   }
   .max {
     grid-area: max;

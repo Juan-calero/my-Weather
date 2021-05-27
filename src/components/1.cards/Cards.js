@@ -7,7 +7,7 @@ function Cards() {
   const { localId } = useContext(MyContext);
   const { previsao } = useFetch(localId);
   return (
-    <div className="cards">
+    <section className="cards">
       {previsao.map((e, index) => {
         return (
           <Card
@@ -22,7 +22,7 @@ function Cards() {
           />
         );
       })}
-    </div>
+    </section>
   );
 }
 

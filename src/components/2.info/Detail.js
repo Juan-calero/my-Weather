@@ -1,20 +1,20 @@
 import React, { useContext } from "react";
 import { MyContext } from "../utils/utils";
-import BigCard from "./BigCard";
-import InfoItems from "./InfoItems";
+import DetailCard from "./DetailCard";
+import DetailContent from "./DetailContent";
 
-export default function Info() {
+function Detail() {
   const { bigCard } = useContext(MyContext);
   return (
     <>
       {bigCard.index !== undefined && (
         <section className="detail">
-          <div>
-            <BigCard />
-          </div>
-          <InfoItems />
+          <DetailCard />
+          <DetailContent />
         </section>
       )}
     </>
   );
 }
+
+export default Detail;

@@ -35,7 +35,7 @@ function Card({
   let i = now.getDay();
   return (
     <div
-      className={"card " + cardDynamicBg(tMax)}
+      className={"cards__item " + cardDynamicBg(tMax)}
       tabIndex="0"
       style={
         isSelected
@@ -56,11 +56,9 @@ function Card({
       }
       onClick={handleClick}
     >
-      <h2 className="card__dayOfWeek">
-        {now.getDay() === i + index ? "Hoje" : arr[(i + index) % 7]}
-      </h2>
+      <h2>{now.getDay() === i + index ? "Hoje" : arr[(i + index) % 7]}</h2>
       <svg
-        className="card__icon"
+        className="cards__item--icon"
         key={arrWeatherIcons.id}
         xmlns="http://www.w3.org/2000/svg"
         viewBox={type && arrWeatherIcons[type].viewBox}
@@ -70,11 +68,11 @@ function Card({
           <stop className="alt-stop" offset="100%" />
         </linearGradient>
         <path
-          className="card__icon--path"
+          className="cards__item--path"
           d={type && arrWeatherIcons[type].d}
         />
       </svg>
-      <h4 className="card__degs">{tMax + "°C"}</h4>
+      <h4>{Math.round(tMax) + "°C"}</h4>
     </div>
   );
 }
