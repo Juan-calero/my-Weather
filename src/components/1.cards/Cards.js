@@ -1,39 +1,29 @@
-import React, { Component } from 'react'
-import Card from './Card'
-import apiMeteo from '../utils/apiMeteo'
+import React, { useContext } from "react";
+import useFetch from "../utils/useFetch";
+import { MyContext } from "../utils/utils";
+import Card from "./Card";
 
-class Cards extends Component {
-    constructor() {
-        super()
-        this.state = {
-            previsao: []
-        }
-    }
-    async componentDidMount() {
-        const response = await apiMeteo.get('');
-        this.setState({
-            previsao: response.data.data
-        })
-
-    }
-    render() {
-        const now = new Date()
-        let i = now.getDay() - 1
+function Cards() {
+  const { localId } = useContext(MyContext);
+  const { previsao } = useFetch(localId);
+  return (
+    <div className="cards">
+      {previsao.map((e, index) => {
         return (
-            <div className="cards">
-                {this.state.previsao.map(e => {
-                    i++
-                    return (
-                        <Card tMin={e.tMin}
-                            tMax={e.tMax}
-                            type={e.idWeatherType}
-                            date={i % 7}
-                        />
-                    )
-                })}
-            </div>
-        )
-    }
+          <Card
+            key={index}
+            tMin={e.tMin}
+            tMax={e.tMax}
+            type={e.idWeatherType}
+            index={index}
+            precipitaProb={e.precipitaProb}
+            predWindDir={e.predWindDir}
+            classWindSpeed={e.classWindSpeed}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
-export default Cards
+export default Cards;

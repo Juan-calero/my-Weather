@@ -1,25 +1,82 @@
-import React from 'react'
-import cardDynamicBg from '../utils/cardDynamicBg';
-import weatherTypes from '../utils/weatherTypes'
-import arrWeatherIcons from '../utils/arrWeatherIcons'
+import React, { useContext, useEffect, useState } from "react";
+import arrWeatherIcons from "../utils/arrWeatherIcons";
+import { arr, MyContext, cardDynamicBg } from "../utils/utils";
 
-function Card(props) {
-    const arr = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
-    const now = new Date();
-    console.log(props.type > 0 && arrWeatherIcons[props.type].viewBox)
-    return (
-        <div className={"card " + cardDynamicBg(props.tMax)}>
-            <p className="card__dayOfWeek">{now.getDay() === props.date ? 'Hoje' : arr[props.date]}</p>
-            <svg className="card__icon"
-                key={arrWeatherIcons.id}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox={props.type > 0 && arrWeatherIcons[props.type].viewBox}>
-                <path d={props.type > 0 && arrWeatherIcons[props.type].d} /></svg>
-            <h2 className="card__degs">{props.tMax}</h2>
-            <h2 className="card__degs">{props.tMin}</h2>
-            <h4 className="card__weatherType">{weatherTypes[props.type]}</h4>
-        </div>
-    )
+function Card({
+  tMax,
+  tMin,
+  type,
+  index,
+  precipitaProb,
+  predWindDir,
+  classWindSpeed,
+}) {
+  const { bigCard, setBigCard } = useContext(MyContext);
+  const [isSelected, setIsSelected] = useState(false);
+  useEffect(() => {
+    if (bigCard.index === index) {
+      setIsSelected(true);
+    } else {
+      setIsSelected(false);
+    }
+  }, [bigCard]);
+  const handleClick = () => {
+    setBigCard({
+      tMax: tMax,
+      tMin: tMin,
+      type: type,
+      index: index,
+      precipitaProb: precipitaProb,
+      predWindDir: predWindDir,
+      classWindSpeed: classWindSpeed,
+    });
+  };
+  const now = new Date();
+  let i = now.getDay();
+  return (
+    <div
+      className={"card " + cardDynamicBg(tMax)}
+      tabIndex="0"
+      style={
+        isSelected
+          ? {
+              background: "#727272",
+              filter: "brightness(300%)",
+              width: "20rem",
+              height: "20rem",
+              transform: "scale(.1)",
+              cursor: "auto",
+              borderRadius: "100%",
+              transition: "transform 0.2s ease",
+            }
+          : {
+              animationName: "popup",
+              animationDuration: "2.5s",
+            }
+      }
+      onClick={handleClick}
+    >
+      <h2 className="card__dayOfWeek">
+        {now.getDay() === i + index ? "Hoje" : arr[(i + index) % 7]}
+      </h2>
+      <svg
+        className="card__icon"
+        key={arrWeatherIcons.id}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox={type && arrWeatherIcons[type].viewBox}
+      >
+        <linearGradient id="gradient">
+          <stop className="main-stop" offset="0%" />
+          <stop className="alt-stop" offset="100%" />
+        </linearGradient>
+        <path
+          className="card__icon--path"
+          d={type && arrWeatherIcons[type].d}
+        />
+      </svg>
+      <h4 className="card__degs">{tMax + "°C"}</h4>
+    </div>
+  );
 }
 
-export default Card
+export default Card;

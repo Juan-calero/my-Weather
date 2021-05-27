@@ -1,8 +1,15 @@
 const arrWeatherIcons = [
     {
+        id: 0,
+        name: 'Sem Informação',
+        width: "1em",
+        height: "1em",
+        viewBox: "0 0 24 24",
+        d: ["M12 1a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V2a1 1 0 0 1 1-1zM3.293 3.293a1 1 0 0 1 1.414 0l1 1a1 1 0 0 1-1.414 1.414l-1-1a1 1 0 0 1 0-1.414zm17.414 0a1 1 0 0 1 0 1.414l-1 1a1 1 0 1 1-1.414-1.414l1-1a1 1 0 0 1 1.414 0zM12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10zM1 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1zm19 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1zM4.293 18.293a1 1 0 0 1 1.414 1.414l-1 1a1 1 0 0 1-1.414-1.414l1-1zm15 2.414l-1-1a1 1 0 0 1 1.414-1.414l1 1a1 1 0 0 1-1.414 1.414zM12 20a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1z", "M12 6a6 6 0 1 0 0 12a6 6 0 0 0 0-12z"]
+    },
+    {
         id: 1,
         name: 'Céu Limpo',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 24 24",
@@ -11,7 +18,6 @@ const arrWeatherIcons = [
     {
         id: 2,
         name: 'Pouco Nublado',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 48 48",
@@ -20,7 +26,6 @@ const arrWeatherIcons = [
     {
         id: 3,
         name: 'Nublado',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -29,7 +34,6 @@ const arrWeatherIcons = [
     {
         id: 4,
         name: 'Muito Nublado',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 24 24",
@@ -38,7 +42,6 @@ const arrWeatherIcons = [
     {
         id: 5,
         name: 'Nuvens Altas',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 24 24",
@@ -47,7 +50,6 @@ const arrWeatherIcons = [
     {
         id: 6,
         name: 'Aguaceiros',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 24 24",
@@ -56,7 +58,6 @@ const arrWeatherIcons = [
     {
         id: 7,
         name: 'Aguaceiros',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 24 24",
@@ -65,7 +66,6 @@ const arrWeatherIcons = [
     {
         id: 8,
         name: 'Aguaceiros',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 24 24",
@@ -74,7 +74,6 @@ const arrWeatherIcons = [
     {
         id: 9,
         name: 'Chuva',
-        xmlns: "http://www.w3.org/2000/svg",
         width: ".1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -83,7 +82,6 @@ const arrWeatherIcons = [
     {
         id: 10,
         name: 'Chuva Fraca',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -92,7 +90,6 @@ const arrWeatherIcons = [
     {
         id: 11,
         name: 'Chuva Forte',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -101,7 +98,6 @@ const arrWeatherIcons = [
     {
         id: 12,
         name: 'Periodos de Chuva',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -110,7 +106,6 @@ const arrWeatherIcons = [
     {
         id: 13,
         name: 'Periodos de Chuva',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -119,7 +114,6 @@ const arrWeatherIcons = [
     {
         id: 14,
         name: 'Periodos de Chuva',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -128,7 +122,6 @@ const arrWeatherIcons = [
     {
         id: 15,
         name: 'Chuvisco',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -137,7 +130,6 @@ const arrWeatherIcons = [
     {
         id: 16,
         name: 'Neblina',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 24 24",
@@ -146,7 +138,6 @@ const arrWeatherIcons = [
     {
         id: 17,
         name: 'Nevoeiro',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -155,7 +146,6 @@ const arrWeatherIcons = [
     {
         id: 18,
         name: 'Neve',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 512 512",
@@ -164,7 +154,6 @@ const arrWeatherIcons = [
     {
         id: 19,
         name: 'Trovoada',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -173,7 +162,6 @@ const arrWeatherIcons = [
     {
         id: 20,
         name: 'Aguaceiros e trovoada',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -182,7 +170,6 @@ const arrWeatherIcons = [
     {
         id: 21,
         name: 'Granizo',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 20 20",
@@ -191,7 +178,6 @@ const arrWeatherIcons = [
     {
         id: 22,
         name: 'Geada',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 20 20",
@@ -200,7 +186,6 @@ const arrWeatherIcons = [
     {
         id: 23,
         name: 'Chuva e trovoada',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -209,7 +194,6 @@ const arrWeatherIcons = [
     {
         id: 24,
         name: 'Nebulosidade convectiva',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 24 24",
@@ -218,7 +202,6 @@ const arrWeatherIcons = [
     {
         id: 25,
         name: 'Parcialmente Nublado',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 48 48",
@@ -227,7 +210,6 @@ const arrWeatherIcons = [
     {
         id: 26,
         name: 'Nevoeiro',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
@@ -236,7 +218,6 @@ const arrWeatherIcons = [
     {
         id: 27,
         name: 'Nublado',
-        xmlns: "http://www.w3.org/2000/svg",
         width: "1em",
         height: "1em",
         viewBox: "0 0 16 16",
