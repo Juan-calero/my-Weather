@@ -11,7 +11,16 @@ export default function Search() {
   const handleSubmit = (e) => {
     e.preventDefault();
     previsao.map((distrito) => {
-      if (distrito.local === value) {
+      if (
+        distrito.local
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "") ===
+        value
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+      ) {
         setLocalId(
           `http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${distrito.globalIdLocal}.json`
         );
