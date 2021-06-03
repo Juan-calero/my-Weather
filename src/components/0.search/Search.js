@@ -1,30 +1,27 @@
 import React, { useState, useContext } from "react";
-import { urlSearch, MyContext } from "../utils/utils";
+import { easySearch, MyContext } from "../utils/utils";
 import useFetch from "../utils/useFetch";
+import Suggestions from "./Suggestions";
+import SearchForm from "./SearchForm";
 
 export default function Search() {
-  const { setLocalId } = useContext(MyContext);
+  const { setLocal } = useContext(MyContext);
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const { previsao } = useFetch(urlSearch);
-
+  const { previsao } = useFetch(
+    "http://api.ipma.pt/open-data/distrits-islands.json"
+  );
   const handleSubmit = (e) => {
     e.preventDefault();
-    previsao.map((distrito) => {
-      if (
-        distrito.local
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "") ===
-        value
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-      ) {
-        setLocalId(
-          `http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${distrito.globalIdLocal}.json`
-        );
+    previsao.map(({ globalIdLocal, local }) => {
+      if (easySearch(local, value)) {
+        setLocal({
+          id: `http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${globalIdLocal}.json`,
+          name: local,
+        });
+        document.title = `My Meteo App | ${local}`;
         setValue("");
+        setSuggestions([]);
       }
     });
   };
@@ -35,44 +32,17 @@ export default function Search() {
     });
     setSuggestions(array);
   };
-
   return (
     <section className="search">
       <h3 className="search__title">Pesquise Distrito/Ilha</h3>
-      <form id="searchForm" className="search__form" onSubmit={handleSubmit}>
-        <input
-          type="search"
-          placeholder="Distrito/Ilha"
-          ariaLabel="Search"
-          value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-            handleSuggestions();
-          }}
-          name=""
-          id="search"
-        />
-        <button className="search__form--btn" type="submit">
-          Click
-        </button>
-      </form>
-      {value && (
-        <div className="search__suggestions">
-          {suggestions.map((e) => {
-            return (
-              <button
-                type="submit"
-                form="searchForm"
-                key={e.globalIdLocal}
-                onClick={() => {
-                  setValue(e.local);
-                }}
-              >
-                {e.local}
-              </button>
-            );
-          })}
-        </div>
+      <SearchForm
+        value={value}
+        handleSubmit={handleSubmit}
+        setValue={setValue}
+        handleSuggestions={handleSuggestions}
+      />
+      {suggestions.length !== 0 && (
+        <Suggestions setValue={setValue} suggestions={suggestions} />
       )}
     </section>
   );

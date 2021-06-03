@@ -9,18 +9,25 @@ import { MyContext } from "./components/utils/utils";
 function App() {
   const { previsao } = useFetch(null);
   const [bigCard, setBigCard] = useState({});
-  const [localId, setLocalId] = useState("");
+  const [local, setLocal] = useState({});
   useEffect(() => {
     setBigCard({});
   }, [previsao]);
   return (
-    <div className="app">
-      <MyContext.Provider value={{ bigCard, setBigCard, localId, setLocalId }}>
+    <>
+      <MyContext.Provider
+        value={{
+          bigCard,
+          setBigCard,
+          local,
+          setLocal,
+        }}
+      >
         <Search />
         <Cards />
         <Detail />
       </MyContext.Provider>
-    </div>
+    </>
   );
 }
 
