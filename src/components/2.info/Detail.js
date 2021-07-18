@@ -1,20 +1,21 @@
-import React, { useContext } from "react";
-import { MyContext } from "../utils/utils";
-import DetailCard from "./DetailCard";
-import DetailContent from "./DetailContent";
+import React, { useContext } from "react"
+import { detail } from "./details.module.scss"
+import { MyContext } from "../utils/utils"
+import DetailCard from "./DetailCard"
+import DetailContent from "./DetailContent"
 
 function Detail() {
-  const { bigCard } = useContext(MyContext);
+  const { bigCard } = useContext(MyContext)
   return (
     <>
       {bigCard.index !== undefined && (
-        <section className="detail">
+        <section className={detail}>
           <DetailCard />
           <DetailContent />
         </section>
       )}
     </>
-  );
+  )
 }
 
-export default Detail;
+export default Detail

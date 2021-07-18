@@ -1,0 +1,59 @@
+@import "../../App.scss";
+
+.cards {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    &__item {
+        opacity: 0.9;
+        margin: 2rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 2rem;
+    }
+}
+.icon {
+    margin: auto 0;
+}
+.cardPath {
+    fill: url(#gradient);
+}
+@media screen and (max-width: 1023px) {
+    .cards {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 300vw;
+        &__item {
+            width: #{"min(40rem,60vw)"};
+            height: #{"min(60rem,90vw)"};
+        }
+    }
+    .icon {
+        height: 20rem;
+        width: 20rem;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .cards {
+        width: #{"min(80vw,130rem)"};
+        justify-content: space-around;
+        &__item {
+            width: #{"min(18rem,17vw)"};
+            height: #{"min(27rem,19vw)"};
+            &:hover,
+            &:focus {
+                cursor: pointer;
+                transform: scale(1.1);
+                box-shadow: 0px 0px 10px white;
+            }
+        }
+    }
+    .icon {
+        height: 10rem;
+        width: 10rem;
+    }
+}

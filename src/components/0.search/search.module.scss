@@ -1,0 +1,66 @@
+@import "../../App.scss";
+@font-face {
+    font-family: "Metropolis";
+    src: url("../../fonts/metropolis.black.otf");
+}
+
+.search {
+    &__title {
+        margin-top: 2rem;
+        color: white;
+    }
+    &__form {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin: 3rem 0;
+        & input {
+            position: relative;
+            z-index: 10;
+            padding: 1rem 2rem;
+            border-radius: 5rem;
+            border: none;
+        }
+    }
+    &__suggestions {
+        position: absolute;
+        overflow-y: scroll;
+        width: 24.7rem;
+        max-height: 40rem;
+        margin: -5rem auto;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2rem 0;
+        z-index: 3;
+        background-color: #012371;
+        border-radius: 0 0 15px 15px;
+        & button {
+            background-color: #012371;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            &:hover,
+            &:focus {
+                background-color: $darkGrey;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.formBtn {
+    z-index: 5;
+    position: relative;
+    border-radius: 25px;
+    padding-left: 4rem;
+    padding-right: 1.5rem;
+    margin-left: -3rem;
+    cursor: pointer;
+    border: none;
+    background-color: $darkGrey;
+    color: white;
+    &:hover,
+    &:focus {
+        background-color: lighten($darkGrey, 10%);
+    }
+}

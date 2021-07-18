@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
-import useFetch from "../utils/useFetch";
-import { MyContext } from "../utils/utils";
-import Card from "./Card";
+import React, { useContext } from "react"
+import { cards } from "./cards.module.scss"
+import useFetch from "../utils/useFetch"
+import { MyContext } from "../utils/utils"
+import Card from "./Card"
 
 function Cards() {
-  const { local } = useContext(MyContext);
-  const { previsao } = useFetch(local.id);
+  const { local } = useContext(MyContext)
+  const { previsao } = useFetch(local.id)
   return (
-    <section className="cards">
+    <section className={cards}>
       {previsao.map((e, index) => {
         return (
           <Card
@@ -19,10 +20,10 @@ function Cards() {
             rainProb={e.precipitaProb}
             predWindDir={e.predWindDir}
           />
-        );
+        )
       })}
     </section>
-  );
+  )
 }
 
-export default Cards;
+export default Cards
