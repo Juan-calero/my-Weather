@@ -1,24 +1,24 @@
-import React from "react"
+import React, { useContext } from "react"
+import { SearchContext } from "../utils/utils"
 import { formBtn, search__form } from "./search.module.scss"
 
-function SearchForm({ value, handleSubmit, setValue, handleSuggestions }) {
+function SearchForm() {
+  const { value, handleSubmit, setValue, handleSuggestions } =
+    useContext(SearchContext)
+
   return (
     <form id='searchForm' className={search__form} onSubmit={handleSubmit}>
       <input
         type='search'
         placeholder='Distrito/Ilha'
-        ariaLabel='Search'
+        aria-label='Search'
         value={value}
-        onChange={(e) => {
-          setValue(e.target.value)
+        onChange={({ target }) => {
+          setValue(target.value)
           handleSuggestions()
         }}
-        name=''
-        id='search'
       />
-      <button className={formBtn} type='submit'>
-        Click
-      </button>
+      <button className={formBtn}>Click</button>
     </form>
   )
 }

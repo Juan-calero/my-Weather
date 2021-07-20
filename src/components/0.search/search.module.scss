@@ -5,9 +5,9 @@
 }
 
 .search {
-    &__title {
+    & h3 {
         margin-top: 2rem;
-        color: white;
+        color: $accent;
     }
     &__form {
         position: relative;
@@ -19,7 +19,7 @@
             z-index: 10;
             padding: 1rem 2rem;
             border-radius: 5rem;
-            border: none;
+            border: 1px solid $accent;
         }
     }
     &__suggestions {
@@ -32,17 +32,17 @@
         transform: translateX(-50%);
         padding: 2rem 0;
         z-index: 3;
-        background-color: #012371;
+        background-color: $accent;
         border-radius: 0 0 15px 15px;
         & button {
-            background-color: #012371;
+            background-color: $accent;
             color: white;
             border: none;
             width: 100%;
             padding: 1rem;
             &:hover,
             &:focus {
-                background-color: $darkGrey;
+                background-color: $grey;
                 cursor: pointer;
             }
         }
@@ -57,10 +57,10 @@
     margin-left: -3rem;
     cursor: pointer;
     border: none;
-    background-color: $darkGrey;
+    background-color: $accent;
     color: white;
     &:hover,
     &:focus {
-        background-color: lighten($darkGrey, 10%);
+        background-color: lighten($accent, 10%);
     }
 }

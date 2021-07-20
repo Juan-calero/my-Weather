@@ -1,20 +1,18 @@
-import React from "react"
+import React, { useContext } from "react"
+import { SearchContext } from "../utils/utils"
 import { search__suggestions } from "./search.module.scss"
 
-function Suggestions({ suggestions, setValue }) {
+function Suggestions() {
+  const { setValue, suggestions } = useContext(SearchContext)
   return (
     <div className={search__suggestions}>
-      {suggestions.map((e) => {
+      {suggestions.map(({ globalIdLocal, local }) => {
         return (
           <button
-            tabIndex='0'
-            type='submit'
             form='searchForm'
-            key={e.globalIdLocal}
-            onClick={() => {
-              setValue(e.local)
-            }}>
-            {e.local}
+            key={globalIdLocal}
+            onClick={() => setValue(local)}>
+            {local}
           </button>
         )
       })}

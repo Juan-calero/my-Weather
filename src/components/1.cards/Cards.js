@@ -9,18 +9,8 @@ function Cards() {
   const { previsao } = useFetch(local.id)
   return (
     <section className={cards}>
-      {previsao.map((e, index) => {
-        return (
-          <Card
-            key={index}
-            tMin={e.tMin}
-            tMax={e.tMax}
-            type={e.idWeatherType}
-            index={index}
-            rainProb={e.precipitaProb}
-            predWindDir={e.predWindDir}
-          />
-        )
+      {previsao.map((cardInfo, index) => {
+        return <Card {...cardInfo} key={index} index={index} />
       })}
     </section>
   )

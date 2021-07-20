@@ -1,17 +1,18 @@
 import React, { useState, useContext } from "react"
 import { search, search__title } from "./search.module.scss"
-import { easySearch, MyContext } from "../utils/utils"
+import { easySearch, MyContext, SearchContext } from "../utils/utils"
 import useFetch from "../utils/useFetch"
 import Suggestions from "./Suggestions"
 import SearchForm from "./SearchForm"
 
 export default function Search() {
-  const { setLocal } = useContext(MyContext)
-  const [value, setValue] = useState("")
-  const [suggestions, setSuggestions] = useState([])
   const { previsao } = useFetch(
     "http://api.ipma.pt/open-data/distrits-islands.json"
   )
+  const { setLocal } = useContext(MyContext)
+  const [value, setValue] = useState("")
+  const [suggestions, setSuggestions] = useState([])
+
   const handleSubmit = (e) => {
     e.preventDefault()
     previsao.map(({ globalIdLocal, local }) => {
@@ -28,23 +29,26 @@ export default function Search() {
   }
 
   const handleSuggestions = () => {
-    let array = previsao.filter((e) => {
-      return e.local.toLowerCase().includes(value.toLowerCase())
+    let array = previsao.filter(({ local }) => {
+      return local.toLowerCase().includes(value.toLowerCase())
     })
     setSuggestions(array)
   }
+
   return (
     <section className={search}>
-      <h3 className={search__title}>Pesquise Distrito/Ilha</h3>
-      <SearchForm
-        value={value}
-        handleSubmit={handleSubmit}
-        setValue={setValue}
-        handleSuggestions={handleSuggestions}
-      />
-      {suggestions.length !== 0 && (
-        <Suggestions setValue={setValue} suggestions={suggestions} />
-      )}
+      <h3>Pesquise Distrito/Ilha</h3>
+      <SearchContext.Provider
+        value={{
+          handleSuggestions,
+          suggestions,
+          setValue,
+          handleSubmit,
+          value,
+        }}>
+        <SearchForm />
+        {suggestions.length !== 0 && <Suggestions />}
+      </SearchContext.Provider>
     </section>
   )
 }

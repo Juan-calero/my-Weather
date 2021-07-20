@@ -1,6 +1,7 @@
-import React from "react";
+import React from "react"
 
-export const MyContext = React.createContext();
+export const MyContext = React.createContext()
+export const SearchContext = React.createContext()
 
 export function cardDynamicBg(tMax) {
   return tMax > 30
@@ -17,12 +18,12 @@ export function cardDynamicBg(tMax) {
     ? "cold"
     : tMax > 0
     ? "colder"
-    : "freeze";
+    : "freeze"
 }
 
 export const frases = [
   ["Belo dia de Praia.", "Não te esqueças do protetor solar!"],
-];
+]
 
 export function dayOfTheWeek(index) {
   const arr = [
@@ -33,10 +34,10 @@ export function dayOfTheWeek(index) {
     "Quinta-feira",
     "Sexta-feira",
     "Sábado",
-  ];
-  const now = new Date();
-  let i = now.getDay();
-  return now.getDay() === i + index ? "Hoje" : arr[(i + index) % 7];
+  ]
+  const now = new Date()
+  let i = now.getDay()
+  return now.getDay() === i + index ? "Hoje" : arr[(i + index) % 7]
 }
 
 export function easySearch(local, value) {
@@ -49,5 +50,5 @@ export function easySearch(local, value) {
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
-  );
+  )
 }

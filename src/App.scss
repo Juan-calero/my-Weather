@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
 
-$darkGrey: #727272;
+$grey: #ddd;
+$darkGrey: #bdbfba;
+$secColor: #a78c71;
+$accent: #205153;
 
 ::-webkit-scrollbar {
     width: 12px;
@@ -13,46 +16,79 @@ $darkGrey: #727272;
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: $darkGrey;
+    background-color: $grey;
 }
 
 .hot {
-    background: linear-gradient(-45deg, #ff9966, #ff5e62);
+    & .mainStop {
+        stop-color: #ff9966;
+    }
+    & .altStop {
+        stop-color: #ff5e62;
+    }
 }
 
 .warmer {
-    background: linear-gradient(-45deg, #ff9966, #ffa939);
+    & .mainStop {
+        stop-color: #ff9966;
+    }
+    & .altStop {
+        stop-color: #ffa939;
+    }
 }
 
 .warm {
-    background: linear-gradient(-45deg, #fff34d, #ffa939);
+    & .mainStop {
+        stop-color: #fff34d;
+    }
+    & .altStop {
+        stop-color: #ffa939;
+    }
 }
 
 .cooler {
-    background: linear-gradient(-45deg, #fff34d, #80ead6);
+    & .mainStop {
+        stop-color: #fff34d;
+    }
+    & .altStop {
+        stop-color: #80ead6;
+    }
 }
 
 .cool {
-    background: linear-gradient(-45deg, #80ead6, #b0def8);
+    & .mainStop {
+        stop-color: #80ead6;
+    }
+    & .altStop {
+        stop-color: #b0def8;
+    }
 }
 
 .cold {
-    background: linear-gradient(-45deg, #aadefb, #59c1fb);
+    & .mainStop {
+        stop-color: #aadefb;
+    }
+    & .altStop {
+        stop-color: #59c1fb;
+    }
 }
 
 .colder {
-    background: linear-gradient(-45deg, #48bdfe, #7e97ff);
+    & .mainStop {
+        stop-color: #48bdfe;
+    }
+    & .altStop {
+        stop-color: #7e97ff;
+    }
 }
 
 .freeze {
-    background: linear-gradient(-45deg, #899ffc, #5a7bff);
-}
-
-.main-stop {
-    stop-color: #ffffff;
-}
-.alt-stop {
-    stop-color: #e3e3e3;
+    & .mainStop {
+        stop-color: #899ffc;
+    }
+    & .altStop {
+        stop-color: #5a7bff;
+    }
 }
 
 *,
@@ -68,10 +104,17 @@ $darkGrey: #727272;
     font-size: 10px;
 }
 
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: linear-gradient(to top, $accent, #36888c 8%, #52b8bc 17%, #c1e5e7 30%, #fff 50% 100%);
+}
+
 h2,
 h3,
 h4 {
-    color: $darkGrey;
+    color: $accent;
     text-align: center;
 }
 h3 {
