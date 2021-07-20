@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { cards } from "./cards.module.scss"
+import { carousel, inner, cards__item } from "./cards.module.scss"
 import useFetch from "../utils/useFetch"
 import { MyContext } from "../utils/utils"
 import Card from "./Card"
@@ -8,10 +8,22 @@ function Cards() {
   const { local } = useContext(MyContext)
   const { previsao } = useFetch(local.id)
   return (
-    <section className={cards}>
-      {previsao.map((cardInfo, index) => {
-        return <Card {...cardInfo} key={index} index={index} />
-      })}
+    <section className={carousel}>
+      <div className={inner}>
+        {local.id ? (
+          previsao.map((cardInfo, index) => {
+            return <Card {...cardInfo} key={index} index={index} />
+          })
+        ) : (
+          <>
+            <div className={`${cards__item}`}></div>
+            <div className={`${cards__item}`}></div>
+            <div className={`${cards__item}`}></div>
+            <div className={`${cards__item}`}></div>
+            <div className={`${cards__item}`}></div>
+          </>
+        )}
+      </div>
     </section>
   )
 }

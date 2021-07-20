@@ -8,7 +8,9 @@ function Detail() {
   const { bigCard } = useContext(MyContext)
   return (
     <>
-      {bigCard.index !== undefined && (
+      {bigCard.index === undefined ? (
+        <section className={detail}></section>
+      ) : (
         <section className={detail}>
           <DetailCard />
           <DetailContent />

@@ -1,20 +1,27 @@
 @import "../../App.scss";
 
-.cards {
-    margin: 0 auto;
+.carousel {
+    min-height: 30vh;
+    max-width: 100vw;
+    overflow: hidden;
+    margin: auto;
+}
+.cards__item {
+    background: white;
+    margin: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2rem;
+    border: 2px solid $darkGrey;
+}
+.inner {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    &__item {
-        background: white;
-        margin: 2rem;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: 2rem;
-        border: 2px solid $darkGrey;
-    }
 }
 .icon {
     margin: auto 0;
@@ -23,35 +30,65 @@
     fill: url(#gradient);
 }
 @media screen and (max-width: 1023px) {
-    .cards {
+    .carousel {
+        background-color: red;
+    }
+    .cards__item {
+        transform-style: preserve-3d;
+        transition: all 0.5 ease;
+        min-width: #{"min(40rem,60vw)"};
+        min-height: #{"min(60rem,90vw)"};
+        &:hover {
+            transform: rotateY(180deg);
+        }
+    }
+    .cardFront {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 300vw;
-        &__item {
-            width: #{"min(40rem,60vw)"};
-            height: #{"min(60rem,90vw)"};
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+    .cardBack {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        & ul {
+            width: 80%;
+        }
+        & li {
+            padding: 1rem 0;
         }
     }
     .icon {
-        height: 20rem;
-        width: 20rem;
+        max-height: 40vh;
+        max-width: 40vw;
     }
 }
 @media screen and (min-width: 1024px) {
-    .cards {
+    .carousel {
         width: #{"min(80vw,130rem)"};
+    }
+    .inner {
         justify-content: space-around;
-        &__item {
-            width: #{"min(18rem,17vw)"};
-            height: #{"min(27rem,19vw)"};
-            &:hover,
-            &:focus {
-                cursor: pointer;
-                transform: scale(1.1);
-                box-shadow: 0px 0px 10px $accent;
-            }
+    }
+    .cards__item {
+        width: #{"min(18rem,17vw)"};
+        height: #{"min(27rem,19vw)"};
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 10px $accent;
         }
+    }
+    .cardBack {
+        display: none;
     }
     .icon {
         height: 10rem;

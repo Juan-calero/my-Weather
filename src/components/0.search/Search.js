@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react"
-import { search, search__title } from "./search.module.scss"
 import { easySearch, MyContext, SearchContext } from "../utils/utils"
 import useFetch from "../utils/useFetch"
-import Suggestions from "./Suggestions"
 import SearchForm from "./SearchForm"
 
 export default function Search() {
@@ -36,19 +34,15 @@ export default function Search() {
   }
 
   return (
-    <section className={search}>
-      <h3>Pesquise Distrito/Ilha</h3>
-      <SearchContext.Provider
-        value={{
-          handleSuggestions,
-          suggestions,
-          setValue,
-          handleSubmit,
-          value,
-        }}>
-        <SearchForm />
-        {suggestions.length !== 0 && <Suggestions />}
-      </SearchContext.Provider>
-    </section>
+    <SearchContext.Provider
+      value={{
+        handleSuggestions,
+        suggestions,
+        setValue,
+        handleSubmit,
+        value,
+      }}>
+      <SearchForm />
+    </SearchContext.Provider>
   )
 }

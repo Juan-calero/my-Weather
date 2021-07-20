@@ -1,66 +1,44 @@
 @import "../../App.scss";
-@font-face {
-    font-family: "Metropolis";
-    src: url("../../fonts/metropolis.black.otf");
-}
 
 .search {
-    & h3 {
-        margin-top: 2rem;
-        color: $accent;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 20vh;
+
     &__form {
-        position: relative;
         display: flex;
         justify-content: center;
-        margin: 3rem 0;
+        position: relative;
         & input {
-            position: relative;
-            z-index: 10;
-            padding: 1rem 2rem;
+            position: inherit;
+            z-index: 5;
+            border: 1px solid $secColor;
             border-radius: 5rem;
-            border: 1px solid $accent;
+            padding: 1rem 2rem;
         }
     }
     &__suggestions {
-        position: absolute;
+        background-color: $secColor;
         overflow-y: scroll;
-        width: 24.7rem;
-        max-height: 40rem;
-        margin: -5rem auto;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 2rem 0;
+        position: absolute;
         z-index: 3;
-        background-color: $accent;
+        margin-top: 1.5rem;
+        padding: 2rem 0;
+        max-height: 40rem;
+        width: 24.9rem;
         border-radius: 0 0 15px 15px;
         & button {
-            background-color: $accent;
-            color: white;
-            border: none;
             width: 100%;
             padding: 1rem;
-            &:hover,
-            &:focus {
-                background-color: $grey;
-                cursor: pointer;
-            }
         }
     }
 }
 .formBtn {
-    z-index: 5;
+    z-index: 4;
     position: relative;
-    border-radius: 25px;
+    border-radius: 5rem;
     padding-left: 4rem;
     padding-right: 1.5rem;
     margin-left: -3rem;
-    cursor: pointer;
-    border: none;
-    background-color: $accent;
-    color: white;
-    &:hover,
-    &:focus {
-        background-color: lighten($accent, 10%);
-    }
 }

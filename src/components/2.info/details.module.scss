@@ -3,13 +3,14 @@
 .detail {
     margin: 0 2rem;
     border-radius: 5px;
-    border: 2px solid $accent;
+    border: 1px solid #ddd;
+    background: rgba($color: white, $alpha: 0.3);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     &__card {
+        border: 2px solid $secColor;
         background: white;
-        border: 3px solid $accent;
     }
     &__content {
         text-align: center;
@@ -20,21 +21,24 @@
             margin: 2rem 0;
         }
         & li {
+            background: white;
             display: flex;
             flex-direction: column;
             align-items: center;
-            border: 2px solid $accent;
+            border: 2px solid $secColor;
             border-radius: 5px;
         }
     }
 }
+//CHECK IF THIS STILL MAKES SENSE
 @media screen and (max-width: 1023px) {
     .detail {
+        display: none;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: rgba($color: #000, $alpha: 0.9);
+        background: rgba($color: black, $alpha: 0.9);
         &__card {
             display: none;
         }
@@ -59,7 +63,7 @@
         width: fit-content;
         margin: 0 auto;
         padding: 2rem 4rem;
-        background: #36888c;
+        min-height: 40vh;
         &__card {
             transition: transform 0.2s, filter 0.2s, opacity -0.1s;
             animation-duration: 0.2s;
