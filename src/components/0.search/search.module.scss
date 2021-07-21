@@ -1,15 +1,10 @@
 @import "../../App.scss";
 
-h1 {
-    font-size: 2vw;
-    margin-bottom: 1%;
-}
 .search {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 19vh;
-
     &__form {
         display: flex;
         justify-content: center;
@@ -45,4 +40,16 @@ h1 {
     padding-left: 3rem;
     padding-right: 1rem;
     margin-left: -2rem;
+}
+@media screen and (max-width: 1023px) {
+    h1 {
+        font-size: #{"min(6vw,2rem)"};
+        margin-bottom: 4%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: 2vw;
+        margin-bottom: 1%;
+    }
 }

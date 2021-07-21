@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { detail__content } from "./details.module.scss"
-import { frases, MyContext } from "../utils/utils"
+import { MyContext } from "../utils/utils"
 
 function DetailContent() {
   const {

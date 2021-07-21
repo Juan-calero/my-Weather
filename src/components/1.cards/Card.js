@@ -7,7 +7,8 @@ import {
   cardBack,
 } from "./cards.module.scss"
 import arrWeatherIcons from "../utils/arrWeatherIcons"
-import { frases, MyContext, cardDynamicBg, dayOfTheWeek } from "../utils/utils"
+import { MyContext, cardDynamicBg, dayOfTheWeek } from "../utils/utils"
+import useViewport from "../utils/useViewport.js"
 
 function Card({
   tMax,
@@ -23,6 +24,7 @@ function Card({
     local: { name },
   } = useContext(MyContext)
   const [isSelected, setIsSelected] = useState(false)
+  const { width } = useViewport()
 
   useEffect(() => {
     bigCard.index === index ? setIsSelected(true) : setIsSelected(false)
@@ -72,28 +74,29 @@ function Card({
         )}
         <p>{Math.round(tMax) + "°C"}</p>
       </div>
-      <div className={cardBack}>
-        <p>{name}</p>
-        <ul>
-          <li>
-            <p>Vento</p>
-            <p>{predWindDir}</p>
-          </li>
-          <li>
-            <p>Chuva</p>
-            <p>{Math.round(precipitaProb) + "%"}</p>
-          </li>
-          <li>
-            <p>Máx</p>
-            <p>{Math.round(tMax) + "°C"}</p>
-          </li>
-          <li>
-            <p>Min</p>
-            <p>{Math.round(tMin) + "°C"}</p>
-          </li>
-        </ul>
-        <p>{frases[0]}</p>
-      </div>
+      {width < 1024 && (
+        <div className={cardBack}>
+          <p>{name}</p>
+          <ul>
+            <li>
+              <p>Vento</p>
+              <p>{predWindDir}</p>
+            </li>
+            <li>
+              <p>Chuva</p>
+              <p>{Math.round(precipitaProb) + "%"}</p>
+            </li>
+            <li>
+              <p>Máx</p>
+              <p>{Math.round(tMax) + "°C"}</p>
+            </li>
+            <li>
+              <p>Min</p>
+              <p>{Math.round(tMin) + "°C"}</p>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   )
 }
