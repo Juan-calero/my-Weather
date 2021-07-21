@@ -101,7 +101,7 @@ $accent: #36888c;
 }
 
 :root {
-    font-size: 10px;
+    font-size: 16px;
 }
 
 body {
@@ -116,31 +116,21 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
 }
-h1 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
+
+li {
+    list-style: none;
 }
 
 h1,
 h2,
 h3,
-h4 {
+p {
     color: $secColor;
     text-align: center;
 }
-h3 {
-    font-size: 3rem;
-}
 
-h4 {
-    font-family: "Metropolis", serif;
-}
-h5,
-p {
-    color: $secColor;
-}
 button {
     background-color: $secColor;
     color: white;
@@ -158,36 +148,5 @@ button {
     }
     to {
         opacity: 1;
-    }
-}
-
-@media screen and (max-width: 1023px) {
-    h2 {
-        font-size: #{"min(5.0rem, 7vw)"};
-    }
-    h4 {
-        font-size: #{"min(8rem, 10vw)"};
-    }
-    h5 {
-        font-size: #{"min(4.5vw, 4rem)"};
-    }
-    p {
-        font-size: #{"min(3.5vw, 2rem)"};
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    h2 {
-        font-size: #{"min(2.0rem, 1.4vw)"};
-    }
-
-    h4 {
-        font-size: #{"clamp(3rem, 2.4vw, 4rem)"};
-    }
-    h5 {
-        font-size: 4rem;
-    }
-    p {
-        font-size: 2rem;
     }
 }

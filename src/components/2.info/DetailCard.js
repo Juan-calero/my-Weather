@@ -32,7 +32,7 @@ function DetailCard() {
     <div
       style={handleStyle}
       className={`${detail__card} ${cardDynamicBg(tMax)}`}>
-      <h2>{dayOfTheWeek(index)}</h2>
+      <p>{dayOfTheWeek(index)}</p>
       {idWeatherType && (
         <svg
           className={icon}
@@ -46,7 +46,7 @@ function DetailCard() {
           <path className={path} d={arrWeatherIcons[idWeatherType].d} />
         </svg>
       )}
-      <h3>{weatherTypes[idWeatherType]}</h3>
+      <p>{weatherTypes[idWeatherType]}</p>
     </div>
   )
 }

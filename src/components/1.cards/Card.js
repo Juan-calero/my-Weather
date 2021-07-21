@@ -56,7 +56,7 @@ function Card({
       }
       onClick={handleClick}>
       <div className={cardFront}>
-        <h2>{dayOfTheWeek(index)}</h2>
+        <p>{dayOfTheWeek(index)}</p>
         {idWeatherType && (
           <svg
             className={icon}
@@ -70,26 +70,26 @@ function Card({
             <path className={cardPath} d={arrWeatherIcons[idWeatherType].d} />
           </svg>
         )}
-        <h4>{Math.round(tMax) + "°C"}</h4>
+        <p>{Math.round(tMax) + "°C"}</p>
       </div>
       <div className={cardBack}>
-        <h5>{name}</h5>
+        <p>{name}</p>
         <ul>
           <li>
             <p>Vento</p>
-            <h5>{predWindDir}</h5>
+            <p>{predWindDir}</p>
           </li>
           <li>
             <p>Chuva</p>
-            <h5>{Math.round(precipitaProb) + "%"}</h5>
+            <p>{Math.round(precipitaProb) + "%"}</p>
           </li>
           <li>
             <p>Máx</p>
-            <h5>{Math.round(tMax) + "°C"}</h5>
+            <p>{Math.round(tMax) + "°C"}</p>
           </li>
           <li>
             <p>Min</p>
-            <h5>{Math.round(tMin) + "°C"}</h5>
+            <p>{Math.round(tMin) + "°C"}</p>
           </li>
         </ul>
         <p>{frases[0]}</p>

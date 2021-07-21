@@ -1,89 +1,66 @@
 @import "../../App.scss";
 
-.detail {
-    margin: 0 2rem;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    background: rgba($color: white, $alpha: 0.3);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    &__card {
-        border: 2px solid $secColor;
-        background: white;
-    }
-    &__content {
-        text-align: center;
-        & ul {
-            display: grid;
-            grid-template-columns: auto auto;
-            gap: 4rem;
-            margin: 2rem 0;
-        }
-        & li {
-            background: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 2px solid $secColor;
-            border-radius: 5px;
-        }
-    }
-}
-//CHECK IF THIS STILL MAKES SENSE
 @media screen and (max-width: 1023px) {
     .detail {
         display: none;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba($color: black, $alpha: 0.9);
-        &__card {
-            display: none;
-        }
-        &__content {
-            width: #{"min(40rem,60vw)"};
-            height: #{"min(60rem,90vw)"};
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-            & ul {
-                width: 80%;
-            }
-            & li {
-                padding: 1rem 0;
-            }
-        }
     }
 }
 @media screen and (min-width: 1024px) {
     .detail {
-        width: fit-content;
-        margin: 0 auto;
-        padding: 2rem 4rem;
-        min-height: 40vh;
+        margin: auto;
+        border: 1px solid #ddd;
+        background: rgba($color: white, $alpha: 0.3);
+        display: flex;
+        align-items: center;
+        padding: 0 3rem;
+        height: 38vh;
         &__card {
-            transition: transform 0.2s, filter 0.2s, opacity -0.1s;
-            animation-duration: 0.2s;
-            padding: 2rem;
-            margin: 0 5rem 0 0;
-            width: #{"min(26rem,18vw)"};
-            height: #{"min(39rem,27vw)"};
+            background: white;
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-radius: 3rem;
+            border-radius: 1rem;
+            box-shadow: 2px 2px 20px rgba($color: $accent, $alpha: 0.2);
+            transition: transform 0.2s, filter 0.2s, opacity -0.1s;
+            animation-duration: 0.2s;
+            height: 30vh;
+            width: 20vh;
+            padding: 1rem;
+            margin-right: 5vw;
         }
-        &__content li {
-            padding: 1rem 0;
+        &__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 80%;
+            & h2 {
+                font-size: 3vw;
+                margin-bottom: 1rem;
+            }
+            & ul {
+                padding: 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: #{"min(2vh,2vw)"};
+            }
+            & li {
+                background: white;
+                border: 2px solid $secColor;
+                border-radius: 5px;
+                padding: 0.5rem 1rem;
+                & h3 {
+                    font-size: 2vw;
+                }
+                & p {
+                    font-size: 1.5vw;
+                }
+            }
         }
     }
     .icon {
-        margin: auto 0;
-        height: 20rem;
-        width: 20rem;
+        margin: auto;
+        height: auto;
+        width: 100%;
     }
     .path {
         fill: url(#gradient);

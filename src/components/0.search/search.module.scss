@@ -1,10 +1,14 @@
 @import "../../App.scss";
 
+h1 {
+    font-size: 2vw;
+    margin-bottom: 1%;
+}
 .search {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 20vh;
+    height: 19vh;
 
     &__form {
         display: flex;
@@ -14,8 +18,8 @@
             position: inherit;
             z-index: 5;
             border: 1px solid $secColor;
-            border-radius: 5rem;
-            padding: 1rem 2rem;
+            border-radius: 3rem;
+            padding: 0.5rem 1rem;
         }
     }
     &__suggestions {
@@ -23,22 +27,22 @@
         overflow-y: scroll;
         position: absolute;
         z-index: 3;
-        margin-top: 1.5rem;
-        padding: 2rem 0;
-        max-height: 40rem;
-        width: 24.9rem;
+        margin-top: 1rem;
+        padding: 1rem 0;
+        max-height: 39rem;
+        width: 23.9rem;
         border-radius: 0 0 15px 15px;
         & button {
             width: 100%;
-            padding: 1rem;
+            padding: 0.5rem;
         }
     }
 }
 .formBtn {
     z-index: 4;
     position: relative;
-    border-radius: 5rem;
-    padding-left: 4rem;
-    padding-right: 1.5rem;
-    margin-left: -3rem;
+    border-radius: 4rem;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    margin-left: -2rem;
 }

@@ -11,26 +11,25 @@ function DetailContent() {
 
   return (
     <div className={detail__content}>
-      <h5>{name}</h5>
+      <h2>{name}</h2>
       <ul>
         <li>
-          <p>Vento</p>
-          <h5>{predWindDir}</h5>
+          <h3>Vento</h3>
+          <p>{predWindDir}</p>
         </li>
         <li>
-          <p>Chuva</p>
-          <h5>{Math.round(precipitaProb) + "%"}</h5>
+          <h3>Chuva</h3>
+          <p>{Math.round(precipitaProb) + "%"}</p>
         </li>
         <li>
-          <p>Máx</p>
-          <h5>{Math.round(tMax) + "°C"}</h5>
+          <h3>Máx</h3>
+          <p>{Math.round(tMax) + "°C"}</p>
         </li>
         <li>
-          <p>Min</p>
-          <h5>{Math.round(tMin) + "°C"}</h5>
+          <h3>Min</h3>
+          <p>{Math.round(tMin) + "°C"}</p>
         </li>
       </ul>
-      <p>{frases[0]}</p>
     </div>
   )
 }
