@@ -21,10 +21,6 @@ export function cardDynamicBg(tMax) {
     : "freeze"
 }
 
-export const frases = [
-  ["Belo dia de Praia.", "Não te esqueças do protetor solar!"],
-]
-
 export function dayOfTheWeek(index) {
   const arr = [
     "Domingo",

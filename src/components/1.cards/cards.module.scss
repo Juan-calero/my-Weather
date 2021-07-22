@@ -39,8 +39,6 @@
             font-size: #{"max(8vw,8vh)"};
         }
     }
-    .inner {
-    }
     .cards__item {
         transform-style: preserve-3d;
         transition: all 0.5 ease;
@@ -83,6 +81,37 @@
     }
 }
 @media screen and (min-width: 1024px) {
+    .cards__item {
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 10px $accent;
+        }
+    }
+    .close {
+        visibility: hidden;
+        &:focus {
+            filter: brightness(400%);
+            cursor: none;
+            transform: scale(0);
+            box-shadow: none;
+            transition: all 0.2s ease;
+        }
+    }
+    .open {
+        animation-name: popup;
+        animation-duration: 2.5s;
+    }
+    @keyframes popup {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
     .carousel {
         height: 28vh;
         & p:first-of-type {
@@ -90,14 +119,6 @@
         }
         & p:last-of-type {
             font-size: #{"max(2vw,2vh)"};
-        }
-    }
-    .cards__item {
-        &:hover,
-        &:focus {
-            cursor: pointer;
-            transform: scale(1.1);
-            box-shadow: 0px 0px 10px $accent;
         }
     }
     .cardFront {
