@@ -4,9 +4,15 @@
     max-width: 100vw;
     overflow: hidden;
     margin: auto;
-    & p:last-of-type {
-        font-family: "Metropolis", serif;
-    }
+}
+.blankCard {
+    background: $grey;
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 2px solid $darkGrey;
+    height: #{"min(24vh,24vw)"};
+    min-width: #{"min(16vh,16vw)"};
+    width: #{"min(16vh,16vw)"};
 }
 .cards__item {
     background: white;
@@ -16,6 +22,11 @@
     height: #{"min(24vh,24vw)"};
     min-width: #{"min(16vh,16vw)"};
     width: #{"min(16vh,16vw)"};
+}
+.cardFront {
+    & p:last-of-type {
+        font-family: "Metropolis", serif;
+    }
 }
 .inner {
     height: 100%;
@@ -31,22 +42,25 @@
     fill: url(#gradient);
 }
 @media screen and (max-width: 1023px) {
-    .carousel {
-        & p:first-of-type {
-            font-size: #{"max(4vw,4vh)"};
-        }
-        & p:last-of-type {
-            font-size: #{"max(8vw,8vh)"};
-        }
-    }
-    .cards__item {
-        transform-style: preserve-3d;
-        transition: all 0.5 ease;
+    .blankCard {
         min-width: #{"min(39rem,60vw)"};
         min-height: #{"min(59rem,90vw)"};
-        &:hover {
+    }
+    .cards__item {
+        margin: 1rem 5vw;
+        transform-style: preserve-3d;
+        transition: all 0.5s ease;
+        min-width: #{"min(39rem,60vw)"};
+        min-height: #{"min(59rem,90vw)"};
+        &:hover,
+        &:focus {
             transform: rotateY(180deg);
         }
+    }
+    .inner {
+        transition: all 0.5s;
+        justify-content: flex-start;
+        margin-left: 15vw;
     }
     .cardFront {
         position: absolute;
@@ -57,22 +71,47 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        & p:first-of-type {
+            font-size: #{"max(4vw,4vh)"};
+        }
+        & p:last-of-type {
+            font-size: #{"max(8vw,8vh)"};
+        }
     }
     .cardBack {
         position: absolute;
         width: 100%;
         height: 100%;
+        padding: 2%;
         backface-visibility: hidden;
         transform: rotateY(180deg);
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
+        & h2 {
+            margin: auto;
+        }
         & ul {
-            width: 80%;
+            padding-left: 0%;
+            margin: auto;
+            width: 90%;
+            height: 40%;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: #{"min(2vw,2vh)"};
+            // background-color: red;
         }
         & li {
-            padding: 0.5rem 0;
+            border: 2px solid $secColor;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            & h3 {
+                font-size: #{"max(3vw,3vh)"};
+            }
+            & p:last-of-type {
+                font-size: #{"max(4vw,4vh)"};
+            }
         }
     }
     .icon {
@@ -133,26 +172,3 @@
         display: none;
     }
 }
-
-/* position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba($color: black, $alpha: 0.9);
-        &__card {
-            display: none;
-        }
-        &__content {
-            width: #{"min(40rem,60vw)"};
-            height: #{"min(60rem,90vw)"};
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-            & ul {
-                width: 80%;
-            }
-            & li {
-                padding: 1rem 0;
-            }
-        } */

@@ -54,22 +54,22 @@ function Card(cardInfo) {
       </div>
       {width < 1024 && (
         <div className={cardBack}>
-          <p>{local.name}</p>
+          <h2>{local.name}</h2>
           <ul>
             <li>
-              <p>Vento</p>
+              <h3>Vento</h3>
               <p>{predWindDir}</p>
             </li>
             <li>
-              <p>Chuva</p>
+              <h3>Chuva</h3>
               <p>{Math.round(precipitaProb) + "%"}</p>
             </li>
             <li>
-              <p>Máx</p>
+              <h3>Máx</h3>
               <p>{Math.round(tMax) + "°C"}</p>
             </li>
             <li>
-              <p>Min</p>
+              <h3>Min</h3>
               <p>{Math.round(tMin) + "°C"}</p>
             </li>
           </ul>

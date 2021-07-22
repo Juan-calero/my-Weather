@@ -29,6 +29,7 @@ function SearchForm() {
         <input
           placeholder='Distrito/Ilha'
           aria-label='Search'
+          type='search'
           value={value}
           onChange={({ target }) => {
             setValue(target.value)

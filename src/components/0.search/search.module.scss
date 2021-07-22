@@ -15,6 +15,9 @@
             border: 1px solid $secColor;
             border-radius: 3rem;
             padding: 0.5rem 1rem;
+            &::-webkit-search-cancel-button {
+                display: none;
+            }
         }
     }
     &__suggestions {
