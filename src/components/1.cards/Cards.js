@@ -1,15 +1,16 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, Suspense } from "react"
 import { carousel, inner, blankCard } from "./cards.module.scss"
+import useViewport from "../utils/useViewport"
+import { useSwipeable } from "react-swipeable"
 import useFetch from "../utils/useFetch"
 import { MyContext } from "../utils/utils"
-import Card from "./Card"
-import { useSwipeable } from "react-swipeable"
+const Card = React.lazy(() => import("./Card"))
 
 function Cards() {
   const { local } = useContext(MyContext)
   const { previsao } = useFetch(local.id)
+  const { width } = useViewport()
   const [cardDisplay, setCardDisplay] = useState(0)
-  console.log(cardDisplay)
 
   const configSwipe = {
     delta: 10, // min distance(px) before a swipe starts
@@ -18,7 +19,6 @@ function Cards() {
     trackMouse: false, // track mouse input
     rotationAngle: 0, // set a rotation angle
   }
-
   const handlers = useSwipeable({
     onSwipedLeft: () => setCardDisplay(cardDisplay < 4 ? cardDisplay + 1 : 4),
     onSwipedRight: () =>
@@ -30,14 +30,20 @@ function Cards() {
     <section {...handlers} className={carousel}>
       <div
         className={inner}
-        style={{
-          transform: `translateX(calc(-${cardDisplay * 60}vw - ${
-            cardDisplay * 10
-          }vw))`,
-        }}>
+        style={
+          width < 1024
+            ? { transform: `translateX(calc(-${cardDisplay * 70}vw))` }
+            : {}
+        }>
         {local.id ? (
           previsao.map((cardInfo, index) => {
-            return <Card {...cardInfo} key={index} index={index} />
+            return (
+              <Suspense
+                key={index}
+                fallback={<div className={blankCard}></div>}>
+                <Card {...cardInfo} index={index} />
+              </Suspense>
+            )
           })
         ) : (
           <>

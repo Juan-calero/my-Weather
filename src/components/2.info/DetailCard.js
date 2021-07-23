@@ -36,7 +36,6 @@ function DetailCard() {
       {idWeatherType && (
         <svg
           className={icon}
-          key={arrWeatherIcons.id}
           xmlns='http://www.w3.org/2000/svg'
           viewBox={arrWeatherIcons[idWeatherType].viewBox}>
           <linearGradient id='gradient'>

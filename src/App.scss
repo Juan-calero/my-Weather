@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alice&family=Titillium+Web:wght@900&display=swap");
 
 $grey: #ddd;
 $darkGrey: #bdbfba;
@@ -111,12 +111,31 @@ body {
     background: linear-gradient(to top, $secColor, #36888c 8%, #52b8bc 17%, #c1e5e7 30%, #fff 50% 100%);
     background-repeat: no-repeat;
 }
+
 #root {
     height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.turnDevice {
+    display: none;
+}
+@media screen and (max-width: 1023px) and (orientation: landscape) {
+    //REFACTOR THIS
+    .turnDevice {
+        background: #212121;
+        display: block;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        overflow: hidden;
+    }
 }
 
 li {

@@ -25,7 +25,7 @@
 }
 .cardFront {
     & p:last-of-type {
-        font-family: "Metropolis", serif;
+        font-family: "Titillium Web", sans-serif;
     }
 }
 .inner {
@@ -50,8 +50,8 @@
         margin: 1rem 5vw;
         transform-style: preserve-3d;
         transition: all 0.5s ease;
-        min-width: #{"min(39rem,60vw)"};
-        min-height: #{"min(59rem,90vw)"};
+        min-width: 60vw;
+        min-height: 90vw;
         &:hover,
         &:focus {
             transform: rotateY(180deg);
@@ -120,6 +120,7 @@
     }
 }
 @media screen and (min-width: 1024px) {
+    //REFACTOR, REACT SWIPE IS WORKING ON DESKTOP ASWELL!!
     .cards__item {
         &:hover,
         &:focus {

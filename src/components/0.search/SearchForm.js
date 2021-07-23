@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, Suspense } from "react"
 import { SearchContext } from "../utils/utils"
 import {
   formBtn,
@@ -6,21 +6,11 @@ import {
   search__suggestions,
   search,
 } from "./search.module.scss"
+const Suggestions = React.lazy(() => import("./Suggestions"))
 
 function SearchForm() {
   const { value, handleSubmit, setValue, suggestions, handleSuggestions } =
     useContext(SearchContext)
-
-  const mapSuggestions = suggestions.map(({ globalIdLocal, local }) => {
-    return (
-      <button
-        form='searchForm'
-        key={globalIdLocal}
-        onClick={() => setValue(local)}>
-        {local}
-      </button>
-    )
-  })
 
   return (
     <section className={search}>
@@ -38,7 +28,14 @@ function SearchForm() {
         />
         <button className={formBtn}>Click</button>
         {suggestions.length !== 0 && (
-          <div className={search__suggestions}>{mapSuggestions}</div>
+          <Suspense
+            fallback={
+              <div className={search__suggestions}>
+                <button>Loading...</button>
+              </div>
+            }>
+            <Suggestions setValue={setValue} suggestions={suggestions} />
+          </Suspense>
         )}
       </form>
     </section>

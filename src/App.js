@@ -1,11 +1,11 @@
 import "./App.scss"
-import "./variables.scss"
-import React, { useState } from "react"
+import React, { useState, Suspense } from "react"
 import Search from "./components/0.search/Search"
-import Detail from "./components/2.info/Detail"
 import Cards from "./components/1.cards/Cards"
 import { MyContext } from "./components/utils/utils"
 import useViewport from "./components/utils/useViewport.js"
+import TurnDevice from "./img/sValK.webp"
+const Detail = React.lazy(() => import("./components/2.info/Detail"))
 
 function App() {
   const [bigCard, setBigCard] = useState({})
@@ -13,19 +13,27 @@ function App() {
   const { width } = useViewport()
 
   return (
-    <>
-      <MyContext.Provider
-        value={{
-          bigCard,
-          setBigCard,
-          local,
-          setLocal,
-        }}>
-        <Search />
-        <Cards />
-        {width > 1023 && <Detail />}
-      </MyContext.Provider>
-    </>
+    <MyContext.Provider
+      value={{
+        bigCard,
+        setBigCard,
+        local,
+        setLocal,
+      }}>
+      <img
+        loading='lazy'
+        className='turnDevice'
+        src={TurnDevice}
+        alt='Please Turn Your Device'
+      />
+      <Search />
+      <Cards />
+      {width > 1023 && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Detail />
+        </Suspense>
+      )}
+    </MyContext.Provider>
   )
 }
 
