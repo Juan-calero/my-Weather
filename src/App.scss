@@ -105,11 +105,8 @@ $accent: #36888c;
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
+    background: linear-gradient(white, #c1e5e7, #52b8bc, #36888c, $secColor);
     overflow: hidden;
-    background: linear-gradient(to top, $secColor, #36888c 8%, #52b8bc 17%, #c1e5e7 30%, #fff 50% 100%);
-    background-repeat: no-repeat;
 }
 
 #root {
@@ -122,8 +119,7 @@ body {
 .turnDevice {
     display: none;
 }
-@media screen and (max-width: 1023px) and (orientation: landscape) {
-    //REFACTOR THIS
+@media screen and (max-device-width: 1023px) and (min-aspect-ratio: 13/9) and (orientation: landscape) {
     .turnDevice {
         background: #212121;
         display: block;

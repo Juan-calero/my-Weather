@@ -54,7 +54,6 @@ function Card(cardInfo) {
       </div>
       {width < 1024 && (
         <div className={cardBack}>
-          <h2>{local.name}</h2>
           <ul>
             <li>
               <h3>Vento</h3>

@@ -27,6 +27,12 @@
             width: 20vh;
             padding: 1rem;
             margin-right: 5vw;
+            & p:first-of-type {
+                font-size: #{"max(1.2vw,1.2vh)"};
+            }
+            & p:last-of-type {
+                font-size: #{"max(1.4vw,1.4vh)"};
+            }
         }
         &__content {
             display: flex;

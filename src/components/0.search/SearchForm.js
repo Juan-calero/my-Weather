@@ -14,7 +14,7 @@ function SearchForm() {
 
   return (
     <section className={search}>
-      <h1>Pesquise Distrito/Ilha</h1>
+      <h1>Search District/Island</h1>
       <form id='searchForm' className={search__form} onSubmit={handleSubmit}>
         <input
           placeholder='Distrito/Ilha'

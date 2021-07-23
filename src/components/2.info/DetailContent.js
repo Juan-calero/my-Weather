@@ -35,5 +35,3 @@ function DetailContent() {
 }
 
 export default DetailContent
-
-/////////THIS ONE NEEDS REFACTORING

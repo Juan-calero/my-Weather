@@ -5,7 +5,7 @@ import SearchForm from "./SearchForm"
 
 export default function Search() {
   const { previsao } = useFetch(
-    "http://api.ipma.pt/open-data/distrits-islands.json"
+    "https://api.ipma.pt/open-data/distrits-islands.json"
   )
   const { setLocal } = useContext(MyContext)
   const [value, setValue] = useState("")
@@ -16,7 +16,7 @@ export default function Search() {
     previsao.map(({ globalIdLocal, local }) => {
       if (easySearch(local, value)) {
         setLocal({
-          id: `http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${globalIdLocal}.json`,
+          id: `https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${globalIdLocal}.json`,
           name: local,
         })
         document.title = `My Meteo App | ${local}`

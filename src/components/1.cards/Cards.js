@@ -4,7 +4,7 @@ import useViewport from "../utils/useViewport"
 import { useSwipeable } from "react-swipeable"
 import useFetch from "../utils/useFetch"
 import { MyContext } from "../utils/utils"
-const Card = React.lazy(() => import("./Card"))
+import Card from "./Card"
 
 function Cards() {
   const { local } = useContext(MyContext)
@@ -13,11 +13,11 @@ function Cards() {
   const [cardDisplay, setCardDisplay] = useState(0)
 
   const configSwipe = {
-    delta: 10, // min distance(px) before a swipe starts
-    preventDefaultTouchmoveEvent: false, // call e.preventDefault *See Details*
-    trackTouch: true, // track touch input
-    trackMouse: false, // track mouse input
-    rotationAngle: 0, // set a rotation angle
+    delta: 10,
+    preventDefaultTouchmoveEvent: false,
+    trackTouch: true,
+    trackMouse: true,
+    rotationAngle: 0,
   }
   const handlers = useSwipeable({
     onSwipedLeft: () => setCardDisplay(cardDisplay < 4 ? cardDisplay + 1 : 4),
@@ -28,6 +28,7 @@ function Cards() {
 
   return (
     <section {...handlers} className={carousel}>
+      {width < 1024 && local.id && <h2>{local.name}</h2>}
       <div
         className={inner}
         style={
@@ -37,13 +38,7 @@ function Cards() {
         }>
         {local.id ? (
           previsao.map((cardInfo, index) => {
-            return (
-              <Suspense
-                key={index}
-                fallback={<div className={blankCard}></div>}>
-                <Card {...cardInfo} index={index} />
-              </Suspense>
-            )
+            return <Card key={index} {...cardInfo} index={index} />
           })
         ) : (
           <>
