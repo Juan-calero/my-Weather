@@ -54,6 +54,7 @@ function Card(cardInfo) {
       </div>
       {width < 1024 && (
         <div className={cardBack}>
+          <p>{dayOfTheWeek(index)}</p>
           <ul>
             <li>
               <h3>Vento</h3>

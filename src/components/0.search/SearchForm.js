@@ -17,7 +17,7 @@ function SearchForm() {
       <h1>Search District/Island</h1>
       <form id='searchForm' className={search__form} onSubmit={handleSubmit}>
         <input
-          placeholder='Distrito/Ilha'
+          placeholder='District/Island'
           aria-label='Search'
           type='search'
           value={value}
@@ -26,7 +26,7 @@ function SearchForm() {
             handleSuggestions()
           }}
         />
-        <button className={formBtn}>Click</button>
+        <button className={formBtn}>Go</button>
         {suggestions.length !== 0 && (
           <Suspense
             fallback={

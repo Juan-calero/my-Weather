@@ -87,6 +87,9 @@
         transform: rotateY(180deg);
         display: flex;
         flex-direction: column;
+        & p:first-of-type {
+            font-size: #{"max(4vw,4vh)"};
+        }
         & h2 {
             margin: auto;
         }

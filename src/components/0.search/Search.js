@@ -20,7 +20,6 @@ export default function Search() {
           name: local,
         })
         document.title = `My Meteo App | ${local}`
-        setValue("")
         setSuggestions([])
       }
     })
