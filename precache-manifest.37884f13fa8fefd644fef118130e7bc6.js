@@ -1,26 +1,26 @@
 self.__precacheManifest = [
   {
-    "revision": "4d17c13d5cbd3316bd9f",
-    "url": "/my-Weather/static/css/main.8d5b867d.chunk.css"
+    "revision": "db57f6dfb1ff8d4b2cc2",
+    "url": "/my-Weather/static/css/main.e7185ebd.chunk.css"
   },
   {
-    "revision": "4d17c13d5cbd3316bd9f",
-    "url": "/my-Weather/static/js/main.b462753e.chunk.js"
+    "revision": "db57f6dfb1ff8d4b2cc2",
+    "url": "/my-Weather/static/js/main.caac880f.chunk.js"
   },
   {
-    "revision": "f79e3c07e52ec4fc967d",
-    "url": "/my-Weather/static/js/runtime~main.fb317efa.js"
+    "revision": "231a4e40e0d8dabb063a",
+    "url": "/my-Weather/static/js/runtime~main.911f78ac.js"
   },
   {
     "revision": "420ef6bc69b4461655dd",
     "url": "/my-Weather/static/js/2.e6f7a0c1.chunk.js"
   },
   {
-    "revision": "2c83dc899579afbd6ad2",
-    "url": "/my-Weather/static/css/3.30350b22.chunk.css"
+    "revision": "f9bfa6cad869be1d6243",
+    "url": "/my-Weather/static/css/3.f99dd566.chunk.css"
   },
   {
-    "revision": "2c83dc899579afbd6ad2",
+    "revision": "f9bfa6cad869be1d6243",
     "url": "/my-Weather/static/js/3.a1b9d5af.chunk.js"
   },
   {
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/my-Weather/static/media/sValK.38b6229a.webp"
   },
   {
-    "revision": "b6057cc544d38ee27c2d9cf7475b195a",
+    "revision": "bb24f4b334043077cc0a114e26c816f2",
     "url": "/my-Weather/index.html"
   }
 ];
