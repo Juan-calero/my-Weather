@@ -4,7 +4,7 @@ import useFetch from "../utils/useFetch"
 import SearchForm from "./SearchForm"
 
 export default function Search() {
-  const { previsao } = useFetch(
+  const { fetched } = useFetch(
     "https://api.ipma.pt/open-data/distrits-islands.json"
   )
   const { setLocal } = useContext(MyContext)
@@ -13,22 +13,25 @@ export default function Search() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    previsao.map(({ globalIdLocal, local }) => {
+    fetched.forEach(({ globalIdLocal, local }) => {
       if (easySearch(local, value)) {
         setLocal({
           id: `https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${globalIdLocal}.json`,
           name: local,
         })
-        document.title = `My Meteo App | ${local}`
+        document.title = `JC Weather App  | ${local}`
         setSuggestions([])
       }
     })
   }
-  const handleSuggestions = () => {
-    let array = previsao.filter(({ local }) => {
-      return local.toLowerCase().includes(value.toLowerCase())
-    })
-    setSuggestions(array)
+  const handleSuggestions = (target) => {
+    setSuggestions(
+      target
+        ? fetched.filter(({ local }) => {
+            return local.toLowerCase().includes(target.toLowerCase())
+          })
+        : []
+    )
   }
 
   return (

@@ -2,3 +2,14 @@ $grey: #ddd;
 $darkGrey: #bdbfba;
 $secColor: #205153;
 $accent: #36888c;
+
+.button {
+    background-color: $secColor;
+    color: white;
+    border: none;
+    &:hover,
+    &:focus {
+        background-color: $accent;
+        cursor: pointer;
+    }
+}

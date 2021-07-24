@@ -6,13 +6,13 @@ import Card from "./Card"
 
 function Cards() {
   const { local } = useContext(MyContext)
-  const { previsao } = useFetch(local.id)
+  const { fetched } = useFetch(local.id)
 
   return (
     <section className={carousel}>
       <div className={inner}>
         {local.id &&
-          previsao.map((cardInfo, index) => {
+          fetched.map((cardInfo, index) => {
             return <Card key={index} {...cardInfo} index={index} />
           })}
       </div>

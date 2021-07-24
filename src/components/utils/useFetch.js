@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react"
 
 function useFetch(url) {
-  const [previsao, setPrevisao] = useState([])
-  const getPrevisao = async () => {
+  const [fetched, setFetched] = useState([])
+  const getfetched = async () => {
     if (url) {
       const response = await fetch(url)
-      const previsao = await response.json()
-      setPrevisao(previsao.data)
+      const fetched = await response.json()
+      setFetched(fetched.data)
     }
   }
   useEffect(() => {
-    getPrevisao()
+    getfetched()
   }, [url])
-  return { previsao }
+  return { fetched }
 }
 
 export default useFetch

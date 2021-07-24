@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import {
   cardPath,
-  cards__item,
+  cardItem,
   icon,
   cardFront,
   open,
@@ -23,12 +23,18 @@ function Card(cardInfo) {
     setIsSelected(i === index)
   }, [i])
 
+  useEffect(() => {
+    if (!index) {
+      setBigCard(cardInfo)
+    }
+  }, [])
+
   const handleClick = () => {
     setBigCard(cardInfo)
   }
   return (
-    <div
-      className={`${cards__item} ${isSelected ? close : open}`}
+    <button
+      className={`${cardItem} ${isSelected ? close : open}`}
       tabIndex='0'
       onClick={handleClick}>
       <div className={cardFront}>
@@ -42,12 +48,14 @@ function Card(cardInfo) {
               <stop className='mainStop' offset='0%' />
               <stop className='altStop' offset='100%' />
             </linearGradient>
-            <path className={cardPath} d={d} />
+            {d.map((element, index) => {
+              return <path key={index} className={cardPath} d={element} />
+            })}
           </svg>
         )}
         <p>{Math.round(tMax) + "°C"}</p>
       </div>
-    </div>
+    </button>
   )
 }
 

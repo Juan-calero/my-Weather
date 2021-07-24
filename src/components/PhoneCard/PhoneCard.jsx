@@ -1,13 +1,14 @@
 import React from "react"
 import {
   cardPath,
-  cards__item,
+  cardItem,
   icon,
   cardFront,
   cardBack,
 } from "../1.cards/cards.module.scss"
 import arrWeatherIcons from "../utils/arrWeatherIcons"
 import { cardDynamicBg, dayOfTheWeek } from "../utils/utils"
+import weatherTypes from "../utils/weatherTypes"
 
 function PhoneCard(cardInfo) {
   const { tMax, tMin, idWeatherType, index, precipitaProb, predWindDir } =
@@ -15,7 +16,7 @@ function PhoneCard(cardInfo) {
   const { viewBox, d } = arrWeatherIcons[idWeatherType]
 
   return (
-    <div className={`${cards__item}`} tabIndex='0'>
+    <div className={cardItem} tabIndex='0'>
       <div className={cardFront}>
         <p>{dayOfTheWeek(index)}</p>
         {idWeatherType && (
@@ -36,22 +37,23 @@ function PhoneCard(cardInfo) {
         <p>{dayOfTheWeek(index)}</p>
         <ul>
           <li>
-            <h3>Vento</h3>
+            <h3>Wind</h3>
             <p>{predWindDir}</p>
           </li>
           <li>
-            <h3>Chuva</h3>
+            <h3>Rain</h3>
             <p>{Math.round(precipitaProb) + "%"}</p>
-          </li>
-          <li>
-            <h3>Máx</h3>
-            <p>{Math.round(tMax) + "°C"}</p>
           </li>
           <li>
             <h3>Min</h3>
             <p>{Math.round(tMin) + "°C"}</p>
           </li>
+          <li>
+            <h3>Max</h3>
+            <p>{Math.round(tMax) + "°C"}</p>
+          </li>
         </ul>
+        <p>{weatherTypes[idWeatherType]}</p>
       </div>
     </div>
   )

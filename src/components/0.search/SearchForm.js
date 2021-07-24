@@ -23,15 +23,15 @@ function SearchForm() {
           value={value}
           onChange={({ target }) => {
             setValue(target.value)
-            handleSuggestions()
+            handleSuggestions(target.value)
           }}
         />
-        <button className={formBtn}>Go</button>
+        <button className={`button ${formBtn}`}>Go</button>
         {suggestions.length !== 0 && (
           <Suspense
             fallback={
               <div className={search__suggestions}>
-                <button>Loading...</button>
+                <button className='button'>Loading...</button>
               </div>
             }>
             <Suggestions setValue={setValue} suggestions={suggestions} />

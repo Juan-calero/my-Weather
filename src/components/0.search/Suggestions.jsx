@@ -5,6 +5,7 @@ function Suggestions({ setValue, suggestions }) {
   const mapSuggestions = suggestions.map(({ globalIdLocal, local }) => {
     return (
       <button
+        className='button'
         form='searchForm'
         key={globalIdLocal}
         onClick={() => setValue(local)}>

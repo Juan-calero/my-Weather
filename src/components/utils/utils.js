@@ -23,17 +23,17 @@ export function cardDynamicBg(tMax) {
 
 export function dayOfTheWeek(index) {
   const arr = [
-    "Domingo",
-    "Segunda-feira",
-    "Terça-feira",
-    "Quarta-feira",
-    "Quinta-feira",
-    "Sexta-feira",
-    "Sábado",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ]
   const now = new Date()
   let i = now.getDay()
-  return now.getDay() === i + index ? "Hoje" : arr[(i + index) % 7]
+  return now.getDay() === i + index ? "Today" : arr[(i + index) % 7]
 }
 
 export function easySearch(local, value) {

@@ -9,7 +9,7 @@ const PhoneCards = React.lazy(() => import("./components/PhoneCard/PhoneCards"))
 const Cards = React.lazy(() => import("./components/1.cards/Cards"))
 
 function App() {
-  const [bigCard, setBigCard] = useState({})
+  const [bigCard, setBigCard] = useState({ index: 0 })
   const [local, setLocal] = useState({
     id: `https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json`,
     name: "Lisboa",

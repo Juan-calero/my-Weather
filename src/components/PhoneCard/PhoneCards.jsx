@@ -7,7 +7,7 @@ import PhoneCard from "./PhoneCard"
 
 function PhoneCards() {
   const { local } = useContext(MyContext)
-  const { previsao } = useFetch(local.id)
+  const { fetched } = useFetch(local.id)
   const [cardDisplay, setCardDisplay] = useState(0)
 
   const configSwipe = {
@@ -31,7 +31,7 @@ function PhoneCards() {
         className={inner}
         style={{ transform: `translateX(calc(-${cardDisplay * 70}vw))` }}>
         {local.id &&
-          previsao.map((cardInfo, index) => {
+          fetched.map((cardInfo, index) => {
             return <PhoneCard key={index} {...cardInfo} index={index} />
           })}
       </div>

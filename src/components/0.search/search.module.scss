@@ -28,7 +28,7 @@
         margin-top: 1rem;
         padding: 1rem 0;
         max-height: 39rem;
-        width: 23.9rem;
+        width: 14rem;
         border-radius: 0 0 15px 15px;
         & button {
             width: 100%;
@@ -40,7 +40,7 @@
     z-index: 4;
     position: relative;
     border-radius: 4rem;
-    padding-left: 3rem;
+    padding-left: 2.3rem;
     padding-right: 1rem;
     margin-left: -2rem;
 }
@@ -54,5 +54,10 @@
     h1 {
         font-size: 2vw;
         margin-bottom: 1%;
+    }
+}
+@media screen and (min-width: 2000px) {
+    .search__suggestions {
+        width: 10.9rem;
     }
 }
