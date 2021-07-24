@@ -24,7 +24,6 @@ export default function Search() {
       }
     })
   }
-
   const handleSuggestions = () => {
     let array = previsao.filter(({ local }) => {
       return local.toLowerCase().includes(value.toLowerCase())

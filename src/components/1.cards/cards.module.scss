@@ -1,19 +1,11 @@
-@import "../../App.scss";
+@import "../../variables";
 
 .carousel {
     max-width: 100vw;
     overflow: hidden;
     margin: auto;
 }
-.blankCard {
-    background: $grey;
-    margin: 1rem;
-    border-radius: 1rem;
-    border: 2px solid $darkGrey;
-    height: #{"min(24vh,24vw)"};
-    min-width: #{"min(16vh,16vw)"};
-    width: #{"min(16vh,16vw)"};
-}
+
 .cards__item {
     background: white;
     margin: 1rem;
@@ -42,10 +34,6 @@
     fill: url(#gradient);
 }
 @media screen and (max-width: 1023px) {
-    .blankCard {
-        min-width: #{"min(39rem,60vw)"};
-        min-height: #{"min(59rem,90vw)"};
-    }
     .cards__item {
         margin: 1rem 5vw;
         transform-style: preserve-3d;
