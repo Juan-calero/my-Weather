@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{27:function(e,n,a){"use strict";a.r(n);var t=a(0),o=a.n(t),s=a(3);n.default=function(e){var n=e.setValue,a=e.suggestions.map(function(e){var a=e.globalIdLocal,t=e.local;return o.a.createElement("button",{className:"button",form:"searchForm",key:a,onClick:function(){return n(t)}},t)});return o.a.createElement("div",{className:s.search__suggestions},a)}}}]);
-//# sourceMappingURL=7.cf52b859.chunk.js.map
