@@ -13,6 +13,11 @@ This project requires React, react-swipeable and node-sass.
 ```
 git clone https://github.com/Juan-calero/my-Weather.git
 ```
+to start the app:
+```
+npm i
+npm run start
+```
 
 ## Author
 
